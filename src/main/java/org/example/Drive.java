@@ -11,8 +11,12 @@ public class Drive {
         this.nameDrive = nameDrive;
         this.capacity = capacity;
     }
+    public String getLetter() {
+        return letter;
+    }
 
     //Revisar si unidad existe
+    //public boolean existeLetter ()
     @Override
     public String toString() {
         return "Drive{" +
@@ -21,4 +25,6 @@ public class Drive {
                 ", capacity=" + capacity +
                 '}';
     }
+
+
 }
