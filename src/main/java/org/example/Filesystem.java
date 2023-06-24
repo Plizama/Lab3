@@ -27,8 +27,13 @@ public class Filesystem implements FilesystemInterface{
     }
     @Override
     public void addDrive(String letter, String nameDrive, int capacity) {
-
+        Drive newDrive = new Drive(letter, nameDrive,capacity);
+        drives.add(newDrive);
     }
+
+
+
+
     @Override
     public String toString() {
         return "Filesystem{" +

@@ -9,9 +9,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Drive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Drive.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Filesystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Filesystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FilesystemInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FilesystemInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Trash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Trash.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +95,7 @@
       <workItem from="1687383177836" duration="924000" />
       <workItem from="1687384115324" duration="1194000" />
       <workItem from="1687450840496" duration="5361000" />
+      <workItem from="1687560194759" duration="5441000" />
     </task>
     <task id="LOCAL-00001" summary="Filesystem">
       <created>1687383999692</created>

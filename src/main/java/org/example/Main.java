@@ -9,21 +9,29 @@ public class Main {
 
         int choice;
 
+        System.out.println("---------PARA INICIAR CREA UN NUEVO SISTEMA----------");
+        System.out.println("Ingrese el nombre del nuevo sistema y luego presione ENTER:");
+        String nameSystem = input.next();
+        Filesystem filesystemCreado = new Filesystem(nameSystem);
+        //System.out.println(filesystemCreado);
+
         do {
             printMenu();
             choice = input.nextInt();
             switch (choice) {
-
                 case 1:
-                    System.out.println("Creando un nuevo sistema");
-                    System.out.println("Ingrese el nombre del nuevo sistema y luego presione ENTER:");
-                    String nameSystem = input.next();
-                    Filesystem filesystemCreado = new Filesystem(nameSystem);
+                    System.out.println("Ingresando una nueva unidad al sistema");
+                    System.out.println("Ingrese la letra de la nueva unidad y luego presione ENTER:");
+                    String letterDrive= input.next();
+                    System.out.println("Ingrese el nombre de la nueva unidad y luego presione ENTER:");
+                    String nameDrive= input.next();
+                    System.out.println("Ingrese la capacidad de la nueva unidad y luego presione ENTER:");
+                    var capacityDrive= input.nextInt();
+                    filesystemCreado.addDrive(letterDrive,nameDrive,capacityDrive);
                     System.out.println(filesystemCreado);
                     break;
 
                 case 2:
-                    //do something
                     break;
 
                 case 3:
@@ -52,13 +60,13 @@ public class Main {
     }
 
     private static void printMenu() {
-        System.out.println("Main Menu\n");
-        System.out.print("1. Crea un nuevo sistema de archivos \n");
-        System.out.print("2. Modify something.\n");
+        System.out.println("----MENU SISTEMA----\n");
+        System.out.print("1. Agregar una nueva unidad al sistema. \n");
+        System.out.print("2. \n");
         System.out.print("3. Sum 2 numbers.\n");
         System.out.print("4. Some option.\n");
         System.out.print("5. Exit\n");
-        System.out.print("\nEnter your choice: ");
+        System.out.print("\nIngresa tu opcion ");
 
     }
 }
