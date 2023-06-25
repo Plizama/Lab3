@@ -46,6 +46,7 @@ public class Filesystem implements FilesystemInterface{
             String nameUserbuscado = userBuscado.getNameUser();
             if(nameUserbuscado.equals(nameUser)){
                 userBuscado.setLogin(true);
+                setUserLog(userBuscado);
             }
         }
     }
@@ -61,20 +62,25 @@ public class Filesystem implements FilesystemInterface{
         }
     }
 
-    @Override
-    public void switchDrive(String letterDriveFijo) {
-        //userlog
+    //existe Usuario logueado
+    public boolean existUserLog(){
         List<User> listaUsers = getUsers();
         for(User userLogueado : listaUsers){
             boolean estadoUser = userLogueado.isLogin();
             if(estadoUser){
-                List<Drive> listaDrives = getDrives();
-                if(existeLEtter(listaDrives,letterDriveFijo)){
-                    setRutaActual(letterDriveFijo);
-
-                }
+                return true;
             }
         }
+        return false;
+    }
+    @Override
+    public void switchDrive(String letterDriveFijo) {
+        setRutaActual(letterDriveFijo);
+    }
+
+    @Override
+    public void mkdir(String nameDirectory) {
+
     }
 
 
@@ -138,6 +144,7 @@ public class Filesystem implements FilesystemInterface{
                 '}';
     }
 
+
     public List<Drive> getDrives() {
         return drives;
     }
@@ -150,5 +157,9 @@ public class Filesystem implements FilesystemInterface{
     public void setRutaActual(String rutaActual) {
         String ruta = rutaActual + "/";
         this.rutaActual = ruta;
+    }
+
+    public void setUserLog(User userLog) {
+        this.userLog = userLog;
     }
 }

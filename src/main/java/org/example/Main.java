@@ -17,7 +17,7 @@ public class Main {
         //System.out.println(drivesprueba);
         //System.out.println(drivesprueba.size());
         Scanner input = new Scanner(System.in);
-        final int MENU_EXIT_OPTION = 6;
+        final int MENU_EXIT_OPTION = 0;
 
         int choice;
 
@@ -91,12 +91,32 @@ public class Main {
 
                 case 5:
                     //switchdrive
-                    System.out.println("---Cerrando la sesion del usuario actual en el sistema---");
-                    filesystemCreado.logout();
-                    System.out.println("--Sesión cerrada.");
+                    System.out.println("Ingrese la direccion y luego presione ENTER:");
+                    String direccionFija= input.next();
+                    System.out.println("---Ingresando a dirección---");
+
+                    if(filesystemCreado.existUserLog()){
+                        filesystemCreado.switchDrive(direccionFija);
+                    } else {
+                        System.out.println("No existe usuario logueado.");
+                    }
+                    System.out.println("--Dirección fijada--");
 
                     break;
                 case 6:
+                    //mkdir
+                    break;
+
+                case 7:
+                    //
+                    break;
+                case 8:
+                    //
+                    break;
+                case 9:
+                    //
+                    break;
+                case 0:
                     System.out.println("Bye.. Que la Fuerza te acompañe");
                     System.exit(0);
                     break;
@@ -113,7 +133,8 @@ public class Main {
         System.out.print("2. Registrar un nuevo usuario en el sistema. \n");
         System.out.print("3. Iniciar sesión con un usuario en el sistema.\n");
         System.out.print("4. Cerrar la sesión de un usuario en el sistema\n");
-        System.out.print("5. Exit\n");
+        System.out.print("5. Ingresar una dirección para fijar\n");
+        System.out.print("0. Exit\n");
         System.out.print("\nIngresa tu opcion ");
     }
 

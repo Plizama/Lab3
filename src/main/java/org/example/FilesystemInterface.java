@@ -9,4 +9,5 @@ public interface FilesystemInterface {
     void login (String nameUser);
     void logout();
     void switchDrive(String letterDriveFijo);
+    void mkdir(String nameDirectory);
 }
