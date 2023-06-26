@@ -10,7 +10,6 @@ public class Filesystem implements FilesystemInterface{
     private List<Folder> folders;
     private List<User> users;
     private List<File> files;
-    private User userLog;
     private String rutaActual;
     private Trash trash;
 
@@ -46,7 +45,6 @@ public class Filesystem implements FilesystemInterface{
             String nameUserbuscado = userBuscado.getNameUser();
             if(nameUserbuscado.equals(nameUser)){
                 userBuscado.setLogin(true);
-                setUserLog(userBuscado);
             }
         }
     }
@@ -73,14 +71,53 @@ public class Filesystem implements FilesystemInterface{
         }
         return false;
     }
+    public String nameUserLog() {
+        List<User> listaUsers = getUsers();
+        for (User userLogueado : listaUsers) {
+            boolean estadoUser = userLogueado.isLogin();
+            if (estadoUser) {
+                String nameUser = userLogueado.getNameUser();
+                return nameUser;
+            }
+        }
+        return "NoUser";
+    }
+
     @Override
     public void switchDrive(String letterDriveFijo) {
+
         setRutaActual(letterDriveFijo);
     }
 
     @Override
     public void mkdir(String nameDirectory) {
+        String nameUserAct = nameUserLog();
+        Date FechaCrea = new Date();
+        String rutaDirectory = getRutaActual();
+        Folder newDirectory = new Folder(nameDirectory, nameUserAct, FechaCrea, FechaCrea, rutaDirectory);
+        folders.add(newDirectory);
 
+    }
+
+    @Override
+    public void cd(String path) {
+        String nivelAnterior = "..";
+        String raizUnidad = "/";
+        String mismaCarpeta1 = ".";
+        String mismaCarpeta2 = "./";
+        String mismaCarpeta3 = "././././";
+        if (path.equals(mismaCarpeta1)){
+            return;
+        }
+        if(path.equals(mismaCarpeta2)) {
+            return;
+        }
+        if(path.equals(mismaCarpeta3)){
+            return;
+        }
+        if(path.equals(raizUnidad)){
+
+        }
     }
 
 
@@ -138,7 +175,6 @@ public class Filesystem implements FilesystemInterface{
                 ", folders=" + folders +
                 ", users=" + users +
                 ", files=" + files +
-                ", userLog='" + userLog + '\'' +
                 ", rutaActual='" + rutaActual + '\'' +
                 ", trash=" + trash +
                 '}';
@@ -159,7 +195,8 @@ public class Filesystem implements FilesystemInterface{
         this.rutaActual = ruta;
     }
 
-    public void setUserLog(User userLog) {
-        this.userLog = userLog;
+
+    public String getRutaActual() {
+        return rutaActual;
     }
 }

@@ -105,6 +105,18 @@ public class Main {
                     break;
                 case 6:
                     //mkdir
+                    System.out.println("Ingrese el nombre de la nueva carpeta, y luego presione ENTER");
+                    String newDirectory= input.next();
+                    System.out.println("---Carpeta creada---");
+                    String pruebaUser = "NoUser";
+                    String nameUserAc = filesystemCreado.nameUserLog();
+                    if(pruebaUser.equals(nameUserAc)){
+                        System.out.println("No existe usuario Logueado.");
+                    } else {
+                        filesystemCreado.mkdir(newDirectory);
+                        System.out.println(filesystemCreado);
+                    }
+
                     break;
 
                 case 7:
@@ -134,6 +146,7 @@ public class Main {
         System.out.print("3. Iniciar sesión con un usuario en el sistema.\n");
         System.out.print("4. Cerrar la sesión de un usuario en el sistema\n");
         System.out.print("5. Ingresar una dirección para fijar\n");
+        System.out.print("6. Crea una nueva carpeta\n");
         System.out.print("0. Exit\n");
         System.out.print("\nIngresa tu opcion ");
     }

@@ -37,7 +37,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2RWrRcwYFbN9eOvez4n0DoyI9AL" />
   <component name="ProjectViewState">
@@ -101,6 +101,7 @@
       <workItem from="1687572105473" duration="8723000" />
       <workItem from="1687619715301" duration="6022000" />
       <workItem from="1687711824079" duration="5348000" />
+      <workItem from="1687794902867" duration="4565000" />
     </task>
     <task id="LOCAL-00001" summary="Filesystem">
       <created>1687383999692</created>

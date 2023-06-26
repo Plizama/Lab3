@@ -10,4 +10,5 @@ public interface FilesystemInterface {
     void logout();
     void switchDrive(String letterDriveFijo);
     void mkdir(String nameDirectory);
+    void cd(String path);
 }
