@@ -1,5 +1,6 @@
 package org.example;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -9,7 +10,7 @@ public class Filesystem implements FilesystemInterface{
     private List<Drive> drives;
     private List<Folder> folders;
     private List<User> users;
-    private List<File> files;
+    private List<FileAbs> files;
     private String rutaActual;
     private Trash trash;
 
@@ -193,6 +194,52 @@ public class Filesystem implements FilesystemInterface{
 
     }
 
+    @Override
+    public void addFile(String nameFile) {
+        int posicionDot = nameFile.indexOf(".");
+        //Probar
+        int posicionFinal = nameFile.length();
+        String extension = nameFile.substring(posicionDot,posicionFinal);
+        List<String> fileCod = Arrays.asList(".java",".py",".rkt");
+        List<String> fileDoc = Arrays.asList(".doc",".docx",".pdf");
+        List<String> fileImag = Arrays.asList(".jpg",".jpeg",".png");
+        List<String> fileText = Arrays.asList(".txt",".md");
+
+        if (fileCod.contains(extension)){
+            String userAct = nameUserLog();
+            Date FechaCrea = new Date();
+            String rutaAct = getRutaActual();
+            FileAbs newfile = new FileCod(nameFile, extension, userAct, FechaCrea, rutaAct);
+            files.add(newfile);
+        }
+        if(fileDoc.contains(extension)){
+            String userAct = nameUserLog();
+            Date FechaCrea = new Date();
+            String rutaAct = getRutaActual();
+            FileAbs newfile = new FileDoc(nameFile, extension, userAct, FechaCrea, rutaAct);
+            files.add(newfile);
+        }
+        if(fileImag.contains(extension)){
+            String userAct = nameUserLog();
+            Date FechaCrea = new Date();
+            String rutaAct = getRutaActual();
+            FileAbs newfile = new FileImag(nameFile, extension, userAct, FechaCrea, rutaAct);
+            files.add(newfile);
+        }
+        if(fileText.contains(extension)){
+            String userAct = nameUserLog();
+            Date FechaCrea = new Date();
+            String rutaAct = getRutaActual();
+            FileAbs newfile = new FileText(nameFile, extension, userAct, FechaCrea, rutaAct);
+            files.add(newfile);
+        }
+    }
+
+    @Override
+    public void del(String fileName) {
+        List<String> todoDirectorioActual = Arrays.asList("*.*","*");
+    }
+
 
     public boolean existeLEtter (List<Drive> listaDrives, String LetterPrueba){
         int numeroDrives = listaDrives.size();
@@ -276,4 +323,5 @@ public class Filesystem implements FilesystemInterface{
     public List<Folder> getFolders() {
         return folders;
     }
+
 }

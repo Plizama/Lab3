@@ -131,7 +131,10 @@ public class Main {
 
                     break;
                 case 8:
-                    //
+                    System.out.println("Ingresa el nombre del nuevo archivo.extension y luego presione ENTER");
+                    String nameFile = input.next();
+                    filesystemCreado.addFile(nameFile);
+                    System.out.println(filesystemCreado);
                     break;
                 case 9:
                     //
@@ -156,6 +159,7 @@ public class Main {
         System.out.print("5. Ingresar una dirección para fijar\n");
         System.out.print("6. Crea una nueva carpeta\n");
         System.out.print("7. Cambiar directorio Actual \n");
+        System.out.print("8. Agregar un nuevo archivo \n");
         System.out.print("0. Exit\n");
         System.out.print("\nIngresa tu opcion ");
     }

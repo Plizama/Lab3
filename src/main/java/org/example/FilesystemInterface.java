@@ -11,4 +11,6 @@ public interface FilesystemInterface {
     void switchDrive(String letterDriveFijo);
     void mkdir(String nameDirectory);
     void cd(String path);
+    void addFile(String nameFile);
+    void del(String fileName);
 }
