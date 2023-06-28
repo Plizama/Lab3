@@ -120,7 +120,15 @@ public class Main {
                     break;
 
                 case 7:
-                    //
+                    System.out.println("Ingresa simbolo o nueva ruta y luego presione ENTER");
+                    String path = input.next();
+                    filesystemCreado.cd(path);
+                    System.out.println(filesystemCreado);
+
+
+
+                    //char caracter= input.next().charAt(0);
+
                     break;
                 case 8:
                     //
@@ -147,6 +155,7 @@ public class Main {
         System.out.print("4. Cerrar la sesión de un usuario en el sistema\n");
         System.out.print("5. Ingresar una dirección para fijar\n");
         System.out.print("6. Crea una nueva carpeta\n");
+        System.out.print("7. Cambiar directorio Actual \n");
         System.out.print("0. Exit\n");
         System.out.print("\nIngresa tu opcion ");
     }

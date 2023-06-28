@@ -24,6 +24,7 @@ public class Folder {
     }
 
 
+
     @Override
     public String toString() {
         return "Folder{" +
@@ -34,5 +35,13 @@ public class Folder {
                 ", atributos=" + atributos +
                 ", rutaActual='" + rutaActual + '\'' +
                 '}';
+    }
+
+    public String getNameFolder() {
+        return nameFolder;
+    }
+
+    public String getRutaActual() {
+        return rutaActual;
     }
 }

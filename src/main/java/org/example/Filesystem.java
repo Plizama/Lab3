@@ -83,6 +83,26 @@ public class Filesystem implements FilesystemInterface{
         return "NoUser";
     }
 
+    //Proabda, funciona
+    public int contadorCaracteres (String palabra, char caracter){
+        int contador = 0;
+        for (int i = 0; i < palabra.length(); i++){
+            if(palabra.charAt(i) == caracter){
+                contador++;
+            }
+        }
+        return contador;
+    }
+    //probado funcional
+    public String invertirString (String cadena){
+        String invertida = "";
+        for (int indice = cadena.length() - 1; indice >=0; indice--){
+            invertida += cadena.charAt(indice);
+        }
+        return invertida;
+    }
+
+
     @Override
     public void switchDrive(String letterDriveFijo) {
 
@@ -116,8 +136,61 @@ public class Filesystem implements FilesystemInterface{
             return;
         }
         if(path.equals(raizUnidad)){
+            String rutaActual = getRutaActual();
+            int posicionPrimerSlash = rutaActual.indexOf("/");
+            String nuevaRutaActual = rutaActual.substring(0,posicionPrimerSlash);
+            setRutaActual(nuevaRutaActual);
+            return;
+        }
+        if (path.equals(nivelAnterior)){
+            String rutaActual = getRutaActual();
+            String simbolo = "/";
+            int numSlash = contadorCaracteres(rutaActual,simbolo.charAt(0));
+            if(numSlash > 1){
+                int tamanoRuta = rutaActual.length() - 1;
+                String rutaCortada = rutaActual.substring(0,tamanoRuta);
+                String rutaInvertida = invertirString(rutaCortada);
+                int posicionPrimerSlash = rutaInvertida.indexOf("/") +1;
+                int finalString = rutaInvertida.length();
+                String rutaFinalInvertida = rutaInvertida.substring(posicionPrimerSlash, finalString);
+                String newRuta = invertirString(rutaFinalInvertida);
+                setRutaActual(newRuta);
+                return;
+            }
+
+        } else {
+
+            if (path.contains("/")){
+                int primerSlach = path.indexOf("/") + 1;
+                int finalString = path.length();
+                String carpeta = path.substring(primerSlach,finalString);
+                List<Folder> carpetasActuales = getFolders();
+                //List<Folder> folders
+                for( Folder carpetaBuscada: carpetasActuales){
+                    String nameCarpetaBuscada = carpetaBuscada.getNameFolder();
+                    if(carpeta.equals(nameCarpetaBuscada)){
+                        String rutaCarpetaBuscada = carpetaBuscada.getRutaActual();
+                        String newRuta = rutaCarpetaBuscada.concat(nameCarpetaBuscada);
+                        setRutaActual(newRuta);
+                        return;
+                    }
+                }
+            }
+            List<Folder> carpetasActuales = getFolders();
+            for( Folder carpetaBuscada: carpetasActuales){
+                String nameCarpetaBuscada = carpetaBuscada.getNameFolder();
+                if(path.equals(nameCarpetaBuscada)){
+                    String rutaCarpetaBuscada = carpetaBuscada.getRutaActual();
+                    String newRuta = rutaCarpetaBuscada.concat(nameCarpetaBuscada);
+                    setRutaActual(newRuta);
+                    return;
+                }
+
+            }
+            return;
 
         }
+
     }
 
 
@@ -198,5 +271,9 @@ public class Filesystem implements FilesystemInterface{
 
     public String getRutaActual() {
         return rutaActual;
+    }
+
+    public List<Folder> getFolders() {
+        return folders;
     }
 }
