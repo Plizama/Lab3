@@ -137,7 +137,10 @@ public class Main {
                     System.out.println(filesystemCreado);
                     break;
                 case 9:
-                    //
+                    System.out.println("Ingresa el nombre del archivo a eliminar y luego presione ENTER");
+                    String nameFileDeleted = input.next();
+                    filesystemCreado.del(nameFileDeleted);
+                    System.out.println(filesystemCreado);
                     break;
                 case 0:
                     System.out.println("Bye.. Que la Fuerza te acompañe");
@@ -155,13 +158,14 @@ public class Main {
         System.out.print("1. Agregar una nueva unidad al sistema. \n");
         System.out.print("2. Registrar un nuevo usuario en el sistema. \n");
         System.out.print("3. Iniciar sesión con un usuario en el sistema.\n");
-        System.out.print("4. Cerrar la sesión de un usuario en el sistema\n");
-        System.out.print("5. Ingresar una dirección para fijar\n");
-        System.out.print("6. Crea una nueva carpeta\n");
-        System.out.print("7. Cambiar directorio Actual \n");
-        System.out.print("8. Agregar un nuevo archivo \n");
-        System.out.print("0. Exit\n");
-        System.out.print("\nIngresa tu opcion ");
+        System.out.print("4. Cerrar la sesión de un usuario en el sistema.\n");
+        System.out.print("5. Ingresar una dirección para fijar.\n");
+        System.out.print("6. Crea una nueva carpeta.\n");
+        System.out.print("7. Cambiar directorio Actual. \n");
+        System.out.print("8. Agregar un nuevo archivo. \n");
+        System.out.print("9. Eliminar un archivo del sistema. \n");
+        System.out.print("0. Exit.\n");
+        System.out.print("\nIngresa tu opcion : ");
     }
 
 }

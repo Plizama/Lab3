@@ -23,6 +23,7 @@ public class Filesystem implements FilesystemInterface{
         this.folders = new ArrayList<>();
         this.users = new ArrayList<>();
         this.files = new ArrayList<>();
+        this.trash = new Trash();
 
     }
 
@@ -235,9 +236,98 @@ public class Filesystem implements FilesystemInterface{
         }
     }
 
+    //private List<FileAbs> files;
     @Override
     public void del(String fileName) {
         List<String> todoDirectorioActual = Arrays.asList("*.*","*");
+        if (todoDirectorioActual.contains(fileName)){
+            String rutaActuAl = getRutaActual();
+            List<FileAbs> archivosActuales = getFiles();
+            for (FileAbs archivoBuscado: archivosActuales){
+                String rutaArchivo = archivoBuscado.getUbicacion();
+                if (rutaArchivo.equals(rutaActuAl)){
+                    String nameArchivoBuscado = archivoBuscado.getNameFile();
+                    eliminaFilePorName(nameArchivoBuscado);
+                    trash.addFileTrash(archivoBuscado);
+                }
+
+
+            }
+            return;
+        }
+        if(fileName.contains("*")){
+            int posicionAsterisco = fileName.indexOf("*");
+            if(posicionAsterisco == 0){
+                int posicionPuntoExtensio = fileName.indexOf(".");
+                int ultimaPosicion = fileName.length();
+                String extension = fileName.substring(posicionPuntoExtensio,ultimaPosicion);
+                List<FileAbs> archivosActuales = getFiles();
+                for (FileAbs archivoBuscado: archivosActuales) {
+                    String extensionArchivoBuscado = archivoBuscado.getExtension();
+                    if (extension.equals(extensionArchivoBuscado)){
+                        String nameArchivoBuscado = archivoBuscado.getNameFile();
+                        eliminaFilePorName(nameArchivoBuscado);
+                        trash.addFileTrash(archivoBuscado);
+                    }
+
+                }
+                return;
+            }else {
+                int posicionPuntoExtensio = fileName.indexOf(".");
+                int ultimaPosicion = fileName.length();
+                String primeraLetra =fileName.substring(0,1);
+                String extension = fileName.substring(posicionPuntoExtensio,ultimaPosicion);
+                List<FileAbs> archivosActuales = getFiles();
+                for (FileAbs archivoBuscado: archivosActuales) {
+                    String extensionArchivoBuscado = archivoBuscado.getExtension();
+                    if (extension.equals(extensionArchivoBuscado)){
+                        String nameArchivoBuscado = archivoBuscado.getNameFile();
+                        String primeraLetraArchivoB = nameArchivoBuscado.substring(0,1);
+                        if (primeraLetra.equals(primeraLetraArchivoB)){
+                            eliminaFilePorName(nameArchivoBuscado);
+                            trash.addFileTrash(archivoBuscado);
+                        }
+
+                    }
+
+                }
+                return;
+
+            }
+
+        }else{
+            List<FileAbs> archivosActuales = getFiles();
+            for (FileAbs archivoBuscado: archivosActuales){
+                String nameArchivoBuscado = archivoBuscado.getNameFile();
+                if (fileName.equals(nameArchivoBuscado)){
+                    eliminaFilePorName(nameArchivoBuscado);
+                    trash.addFileTrash(archivoBuscado);
+                    return;
+                }
+            }
+            List<Folder> carpetasActuales = getFolders();
+            List<FileAbs> busquedaArchivosCarpeta = getFiles();
+            for (Folder carpetaBuscada: carpetasActuales){
+                String nameCarpetaBuscada = carpetaBuscada.getNameFolder();
+                if (nameCarpetaBuscada.equals(fileName)){
+                    eliminaCarpetaPorName(nameCarpetaBuscada);
+                    trash.addFolderTrash(carpetaBuscada);
+                    for (FileAbs archivosEnCarpeta: busquedaArchivosCarpeta){
+                        String rutaArchivoEnCarpeta = archivosEnCarpeta.getUbicacion();
+                        if(rutaArchivoEnCarpeta.contains(nameCarpetaBuscada)){
+                            String nameArchivoEnCarpeta = archivosEnCarpeta.getNameFile();
+                            eliminaFilePorName(nameArchivoEnCarpeta);
+                            trash.addFileTrash(archivosEnCarpeta);
+                            return;
+
+                        }
+                    }
+
+                }
+            }
+        }
+
+
     }
 
 
@@ -300,6 +390,35 @@ public class Filesystem implements FilesystemInterface{
                 '}';
     }
 
+    public void eliminaFilePorName(String nameFile){
+        int contador = 0;
+        List<FileAbs> archivosActuales = getFiles();
+        for (FileAbs archivoBuscado: archivosActuales){
+            String nameArchivoBuscado = archivoBuscado.getNameFile();
+            if (nameArchivoBuscado.equals(nameFile)){
+                files.remove(contador);
+            }
+            contador++;
+
+        }
+    }
+    public void eliminaCarpetaPorName(String nameFolder){
+        int contador = 0;
+        List<Folder> carpetasActuales = getFolders();
+        for (Folder carpetaBuscado: carpetasActuales){
+            String nameCarpetaBuscada = carpetaBuscado.getNameFolder();
+            if (nameCarpetaBuscada.equals(nameFolder)){
+                folders.remove(contador);
+            }
+            contador++;
+
+        }
+    }
+
+
+
+
+
 
     public List<Drive> getDrives() {
         return drives;
@@ -324,4 +443,8 @@ public class Filesystem implements FilesystemInterface{
         return folders;
     }
 
+
+    public List<FileAbs> getFiles() {
+        return files;
+    }
 }

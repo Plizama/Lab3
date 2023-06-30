@@ -26,6 +26,22 @@ public class FileImag extends FileAbs{
     }
 
     @Override
+    public String getNameFile() {
+        return nameFile;
+    }
+
+    @Override
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    @Override
+    public String getExtension() {
+        return extension;
+    }
+
+
+    @Override
     public String toString() {
         return "FileImag{" +
                 "nameFile='" + nameFile + '\'' +

@@ -14,6 +14,10 @@ public abstract class FileAbs {
 
     public abstract String obtenerTipodeArchivo();
 
+    public abstract String getNameFile();
+    public abstract String getUbicacion();
+    public abstract String getExtension();
+
 }
 
 
