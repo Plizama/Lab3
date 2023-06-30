@@ -13,4 +13,5 @@ public interface FilesystemInterface {
     void cd(String path);
     void addFile(String nameFile);
     void del(String fileName);
+    void copy(String nameFile, String targetPath);
 }
