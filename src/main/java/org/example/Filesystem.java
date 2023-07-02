@@ -19,6 +19,7 @@ public class Filesystem implements FilesystemInterface{
 
     public Filesystem(String nameFilesystem) {
         this.nombreSystem = nameFilesystem;
+        this.fecha = new Date();
         this.drives = new ArrayList<>();
         this.folders = new ArrayList<>();
         this.users = new ArrayList<>();
@@ -340,8 +341,76 @@ public class Filesystem implements FilesystemInterface{
         }
     }
 
+    /**
+     *
+     * @param nameFile
+     * @param targetPath
+     */
+
     @Override
     public void copy(String nameFile, String targetPath) {
+        if (nameFile.contains("*")){
+            if (nameFile.contains("/")){
+                //"folder/my_*"
+                int posicionSlash = nameFile.indexOf("/");
+                int largoNameFile = nameFile.length()-1;
+                String comienzoNameFile = nameFile.substring(posicionSlash,largoNameFile);
+                String nameFolder = nameFile.substring(0, posicionSlash);
+                List<FileAbs> archivosActuales = getFiles();
+                for (FileAbs archivoRevision : archivosActuales){
+                    String rutaArchivobuscado = archivoRevision.getUbicacion();
+                    int tamanoRutaArchivo = rutaArchivobuscado.length()-1;
+                    String rutaArchivoCortada = rutaArchivobuscado.substring(0,tamanoRutaArchivo);
+                    String rutaInvertida = invertirString(rutaArchivoCortada);
+                    int posicionPrimerSlash = rutaInvertida.indexOf("/");
+                    String stringCortado = rutaInvertida.substring(0,posicionPrimerSlash);
+                    String carpetaContendora = invertirString(stringCortado);
+                    if (carpetaContendora.equals(nameFolder)){
+                        String nameArchivoRevision = archivoRevision.getNameFile();
+                        if (nameArchivoRevision.contains(comienzoNameFile)){
+                            archivoRevision.setUbicacion(targetPath);
+                        }
+                    }
+                }
+                return;
+            }else{
+                int largoNameFile = nameFile.length();
+                String trozoBuscado = nameFile.substring(1, largoNameFile);
+                List<FileAbs> archivosActuales = getFiles();
+                for (FileAbs archivoBuscado: archivosActuales){
+                    String nameArchivoBuscado = archivoBuscado.getNameFile();
+                    if(nameArchivoBuscado.contains(trozoBuscado)){
+                        archivoBuscado.setUbicacion(targetPath);
+                    }
+                }
+                return;
+            }
+        }else{
+            if(nameFile.contains(".")){
+                List<FileAbs> archivosActuales = getFiles();
+                for (FileAbs archivoBuscado : archivosActuales){
+                    String nameArchivoBuscado = archivoBuscado.getNameFile();
+                    if (nameArchivoBuscado.equals(nameFile)){
+                        archivoBuscado.setUbicacion(targetPath);
+                    }
+                }
+                return;
+            } else {
+                List<Folder> listasCarpetasBuscadas = getFolders();
+                for (Folder carpetaBuscada :  listasCarpetasBuscadas){
+                    String nameFolderBuscada = carpetaBuscada.getNameFolder();
+                    if (nameFolderBuscada.equals(nameFile)){
+                        carpetaBuscada.setRutaActual(targetPath);
+                    }
+                }
+                return;
+
+            }
+
+        }
+
+
+
 
     }
 

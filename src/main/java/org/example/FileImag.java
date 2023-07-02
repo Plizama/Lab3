@@ -40,6 +40,11 @@ public class FileImag extends FileAbs{
         return extension;
     }
 
+    @Override
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
 
     @Override
     public String toString() {

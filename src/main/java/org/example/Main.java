@@ -51,45 +51,54 @@ public class Main {
                     break;
 
                 case 2:
-                    System.out.println("---Ingresando un nuevo usuario al sistema---");
-                    System.out.println("Ingrese el nombre del usuario y luego presione ENTER:");
-                    String nameUser= input.next();
+                    //Scanner opcionCase2 = new Scanner(System.in);
+                    final int MENU_EXIT_OPTION_CASE_2 = 0;
+                    int numeroIngreso2;
+                    do {
+                        printMenuCase2();
+                        numeroIngreso2 = input.nextInt();
+                        switch (numeroIngreso2) {
+                            case 1:
+                                System.out.println("Ingrese el nombre del usuario y luego presione ENTER:");
+                                String nameUser= input.next();
+                                List<User> listaUsuarios = filesystemCreado.getUsers();
+                                boolean banderaUsers = filesystemCreado.existeUser(listaUsuarios, nameUser);
+                                if(banderaUsers == true){
+                                    System.out.println("El nombre de usuario ya se encuentra registrado, intenta con uno nuevo.");
+                                }else{
+                                    filesystemCreado.register(nameUser);
+                                    System.out.println(filesystemCreado);
+                                }
+                                break;
+                            case 2:
+                                System.out.println("---Logueando un usuario en el sistema---");
+                                System.out.println("Ingrese el nombre del usuario a loguear y luego presione ENTER:");
+                                String nameUserLog= input.next();
 
-                    List<User> listaUsuarios = filesystemCreado.getUsers();
-                    boolean banderaUsers = filesystemCreado.existeUser(listaUsuarios, nameUser);
-                    if(banderaUsers == true){
-                        System.out.println("El nombre de usuario ya se encuentra registrado, intenta con uno nuevo.");
-                    } else{
-                        filesystemCreado.register(nameUser);
-                        System.out.println(filesystemCreado);
-                    }
+                                List<User> listaUsuariosIngresados = filesystemCreado.getUsers();
+                                boolean Userbandera = filesystemCreado.existeUser(listaUsuariosIngresados, nameUserLog);
+                                if(Userbandera == true){
+                                    filesystemCreado.login(nameUserLog);
+                                    System.out.println(filesystemCreado);
+                                } else{
+                                    System.out.println("El nombre del usuario no existe, intenta con un usuario existente.");
+                                }
+
+                                break;
+                            case 3:
+                                System.out.println("---Cerrando la sesion del usuario actual en el sistema---");
+                                filesystemCreado.logout();
+                                System.out.println("--Sesión cerrada.");
+                                break;
+
+                            default:
+                                System.out.println(numeroIngreso2 + " is not a valid option! Please select correct option.");
+                        }
+                    } while (numeroIngreso2 != MENU_EXIT_OPTION_CASE_2);
 
                     break;
 
                 case 3:
-                    System.out.println("---Logueando un usuario en el sistema---");
-                    System.out.println("Ingrese el nombre del usuario a loguear y luego presione ENTER:");
-                    String nameUserLog= input.next();
-
-                    List<User> listaUsuariosIngresados = filesystemCreado.getUsers();
-                    boolean Userbandera = filesystemCreado.existeUser(listaUsuariosIngresados, nameUserLog);
-                    if(Userbandera == true){
-                        filesystemCreado.login(nameUserLog);
-                        System.out.println(filesystemCreado);
-                    } else{
-                        System.out.println("El nombre del usuario no existe, intenta con un usuario existente.");
-                    }
-
-                    break;
-
-                case 4:
-                    System.out.println("---Cerrando la sesion del usuario actual en el sistema---");
-                    filesystemCreado.logout();
-                    System.out.println("--Sesión cerrada.");
-
-                    break;
-
-                case 5:
                     //switchdrive
                     System.out.println("Ingrese la direccion y luego presione ENTER:");
                     String direccionFija= input.next();
@@ -101,46 +110,85 @@ public class Main {
                         System.out.println("No existe usuario logueado.");
                     }
                     System.out.println("--Dirección fijada--");
-
-                    break;
-                case 6:
-                    //mkdir
-                    System.out.println("Ingrese el nombre de la nueva carpeta, y luego presione ENTER");
-                    String newDirectory= input.next();
-                    System.out.println("---Carpeta creada---");
-                    String pruebaUser = "NoUser";
-                    String nameUserAc = filesystemCreado.nameUserLog();
-                    if(pruebaUser.equals(nameUserAc)){
-                        System.out.println("No existe usuario Logueado.");
-                    } else {
-                        filesystemCreado.mkdir(newDirectory);
-                        System.out.println(filesystemCreado);
-                    }
-
                     break;
 
-                case 7:
+                case 4:
                     System.out.println("Ingresa simbolo o nueva ruta y luego presione ENTER");
                     String path = input.next();
                     filesystemCreado.cd(path);
                     System.out.println(filesystemCreado);
+                    break;
 
+                case 5:
+                    //Scanner opcionCase5 = new Scanner(System.in);
+                    final int MENU_EXIT_OPTION_CASE_5 = 0;
+                    int numeroIngreso5;
+                    do {
+                        printMenuCase5();
+                        numeroIngreso5 = input.nextInt();
+                        switch (numeroIngreso5) {
+                            case 1:
+                                //mkdir
+                                System.out.println("Ingrese el nombre de la nueva carpeta, y luego presione ENTER");
+                                String newDirectory= input.next();
+                                System.out.println("---Carpeta creada---");
+                                String pruebaUser = "NoUser";
+                                String nameUserAc = filesystemCreado.nameUserLog();
+                                if(pruebaUser.equals(nameUserAc)){
+                                    System.out.println("No existe usuario Logueado.");
+                                } else {
+                                    filesystemCreado.mkdir(newDirectory);
+                                    System.out.println(filesystemCreado);
+                                }
+                                break;
+                            case 2:
+                                System.out.println("Ingresa el nombre del nuevo archivo.extension y luego presione ENTER");
+                                String nameFile = input.next();
+                                filesystemCreado.addFile(nameFile);
+                                System.out.println(filesystemCreado);
+                                break;
+                            default:
+                                System.out.println(numeroIngreso5 + " is not a valid option! Please select correct option.");
+                        }
+                    } while (numeroIngreso5 != MENU_EXIT_OPTION_CASE_5);
 
+                    break;
+                case 6:
+                    final int MENU_EXIT_OPTION_CASE_6 = 0;
+                    int numeroIngreso6;
+                    do {
+                        printMenuCase6();
+                        numeroIngreso6 = input.nextInt();
+                        switch (numeroIngreso6) {
+                            case 1:
+                                System.out.println("Ingresa el nombre del archivo a eliminar y luego presione ENTER");
+                                String nameFileDeleted = input.next();
+                                filesystemCreado.del(nameFileDeleted);
+                                System.out.println(filesystemCreado);
+                                break;
+                            case 2:
+                                //copy
+                                System.out.println("Ingresa el nombre del archivo a copiar y luego presione ENTER");
+                                String nameFileCopy = input.next();
+                                System.out.println("Ingresa la ruta de destino y luego presione ENTER");
+                                String nameRutaFileCopy = input.next();
+                                filesystemCreado.copy(nameFileCopy,nameRutaFileCopy);
+                                System.out.println(filesystemCreado);
+                                break;
+                            default:
+                                System.out.println(numeroIngreso6 + " is not a valid option! Please select correct option.");
+                        }
+                    } while (numeroIngreso6 != MENU_EXIT_OPTION_CASE_6);
 
-                    //char caracter= input.next().charAt(0);
+                    break;
 
+                case 7:
+                    //
                     break;
                 case 8:
-                    System.out.println("Ingresa el nombre del nuevo archivo.extension y luego presione ENTER");
-                    String nameFile = input.next();
-                    filesystemCreado.addFile(nameFile);
-                    System.out.println(filesystemCreado);
+                    //
                     break;
                 case 9:
-                    System.out.println("Ingresa el nombre del archivo a eliminar y luego presione ENTER");
-                    String nameFileDeleted = input.next();
-                    filesystemCreado.del(nameFileDeleted);
-                    System.out.println(filesystemCreado);
                     break;
                 case 0:
                     System.out.println("Bye.. Que la Fuerza te acompañe");
@@ -156,15 +204,47 @@ public class Main {
     private static void printMenu() {
         System.out.println("----MENU SISTEMA----\n");
         System.out.print("1. Agregar una nueva unidad al sistema. \n");
-        System.out.print("2. Registrar un nuevo usuario en el sistema. \n");
-        System.out.print("3. Iniciar sesión con un usuario en el sistema.\n");
-        System.out.print("4. Cerrar la sesión de un usuario en el sistema.\n");
-        System.out.print("5. Ingresar una dirección para fijar.\n");
-        System.out.print("6. Crea una nueva carpeta.\n");
-        System.out.print("7. Cambiar directorio Actual. \n");
-        System.out.print("8. Agregar un nuevo archivo. \n");
+        System.out.print("2. Registrar, iniciar o cerrar sesión de usuario. \n");
+        System.out.print("3. Ingresar una dirección para fijar sistema.\n");
+        System.out.print("4. Cambiar directorio Actual fijado.\n");
+        System.out.print("5. Crear archivos o carpetas en el sistema.\n");
+        System.out.print("6. Modificar, mover o eliminar archivos/carpetas.\n");
+        System.out.print("7. . \n");
+        System.out.print("8. . \n");
         System.out.print("9. Eliminar un archivo del sistema. \n");
         System.out.print("0. Exit.\n");
+        System.out.print("\nIngresa tu opcion : ");
+    }
+    private static void printMenuCase2() {
+        System.out.println("----MENU USUARIOS----\n");
+        System.out.print("1. Registrar un nuevo usuario. \n");
+        System.out.print("2. Iniciar sesión con un usuario en el sistema.\n");
+        System.out.print("3. Cerrar la sesión de un usuario en el sistema.\n");
+        //System.out.print("4. Cerrar la sesión de un usuario en el sistema.\n");
+        //System.out.print("5. Ingresar una dirección para fijar.\n");
+        //System.out.print("6. Crea una nueva carpeta.\n");
+        //System.out.print("7. Cambiar directorio Actual. \n");
+        //System.out.print("8. Agregar un nuevo archivo. \n");
+        //System.out.print("9. Eliminar un archivo del sistema. \n");
+        System.out.print("0. Regresar a menu principal.\n");
+        System.out.print("\nIngresa tu opcion : ");
+    }
+    private static void printMenuCase5() {
+        System.out.println("----MENU CREACIÓN ARCHIVOS/CARPETAS----\n");
+        System.out.print("1. Crea una nueva carpeta. \n");
+        System.out.print("2. Crear un nuevo archivo.\n");
+        System.out.print("0. Regresar a menu principal.\n");
+        System.out.print("\nIngresa tu opcion : ");
+    }
+    private static void printMenuCase6() {
+        System.out.println("----MENU MODIFICAR ARCHIVOS/CARPETAS----\n");
+        System.out.print("1. Eliminar un archivo o carpeta del sistema. \n");
+        //System.out.print("2. copy.\n");
+        //System.out.print("3. move.\n");
+        //System.out.print("4. ren.\n");
+        //System.out.print("5. grep.\n");
+        //System.out.print("5. restore.\n");
+        System.out.print("0. Regresar a menu principal.\n");
         System.out.print("\nIngresa tu opcion : ");
     }
 

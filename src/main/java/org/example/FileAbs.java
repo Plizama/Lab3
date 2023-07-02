@@ -17,6 +17,7 @@ public abstract class FileAbs {
     public abstract String getNameFile();
     public abstract String getUbicacion();
     public abstract String getExtension();
+    public abstract void setUbicacion(String ubicacion);
 
 }
 

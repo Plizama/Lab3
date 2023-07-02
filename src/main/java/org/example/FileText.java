@@ -37,7 +37,13 @@ public class FileText extends FileAbs {
 
     @Override
     public String getExtension() {
+
         return extension;
+    }
+
+    @Override
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
 

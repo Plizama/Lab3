@@ -44,4 +44,8 @@ public class Folder {
     public String getRutaActual() {
         return rutaActual;
     }
+
+    public void setRutaActual(String rutaActual) {
+        this.rutaActual = rutaActual;
+    }
 }
