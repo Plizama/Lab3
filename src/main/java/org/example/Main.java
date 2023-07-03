@@ -24,7 +24,7 @@ public class Main {
         System.out.println("---------PARA INICIAR CREA UN NUEVO SISTEMA----------");
         System.out.println("Ingrese el nombre del nuevo sistema y luego presione ENTER:");
         String nameSystem = input.next();
-        Filesystem filesystemCreado = new Filesystem(nameSystem);
+        Filesystem_17325089_LizamaNunez filesystemCreado = new Filesystem_17325089_LizamaNunez(nameSystem);
         //System.out.println(filesystemCreado);
 
         do {
@@ -40,7 +40,7 @@ public class Main {
                     System.out.println("Ingrese la capacidad de la nueva unidad y luego presione ENTER:");
                     var capacityDrive= input.nextInt();
 
-                    List<Drive> listaDrives = filesystemCreado.getDrives();
+                    List<Drive_17325089_LizamaNunez> listaDrives = filesystemCreado.getDrives();
                     boolean bandera = filesystemCreado.existeLEtter(listaDrives,letterDrive);
                     if(bandera == true){
                         System.out.println("La letra de la unidad se encuentra repetida, intenta nuevamente.");
@@ -61,7 +61,7 @@ public class Main {
                             case 1:
                                 System.out.println("Ingrese el nombre del usuario y luego presione ENTER:");
                                 String nameUser= input.next();
-                                List<User> listaUsuarios = filesystemCreado.getUsers();
+                                List<User_17325089_LizamaNunez> listaUsuarios = filesystemCreado.getUsers();
                                 boolean banderaUsers = filesystemCreado.existeUser(listaUsuarios, nameUser);
                                 if(banderaUsers == true){
                                     System.out.println("El nombre de usuario ya se encuentra registrado, intenta con uno nuevo.");
@@ -75,7 +75,7 @@ public class Main {
                                 System.out.println("Ingrese el nombre del usuario a loguear y luego presione ENTER:");
                                 String nameUserLog= input.next();
 
-                                List<User> listaUsuariosIngresados = filesystemCreado.getUsers();
+                                List<User_17325089_LizamaNunez> listaUsuariosIngresados = filesystemCreado.getUsers();
                                 boolean Userbandera = filesystemCreado.existeUser(listaUsuariosIngresados, nameUserLog);
                                 if(Userbandera == true){
                                     filesystemCreado.login(nameUserLog);
@@ -175,6 +175,23 @@ public class Main {
                                 filesystemCreado.copy(nameFileCopy,nameRutaFileCopy);
                                 System.out.println(filesystemCreado);
                                 break;
+                            case 3:
+                                //move
+                                System.out.println("Ingresa el nombre del archivo que quieres mover y luego presione ENTER");
+                                String nameFileMove = input.next();
+                                System.out.println("Ingresa la ruta de destino y luego presione ENTER");
+                                String nameRutaFileMove = input.next();
+                                filesystemCreado.move(nameFileMove,nameRutaFileMove);
+                                System.out.println(filesystemCreado);
+                                break;
+                            case 4:
+                                System.out.println("Ingresa el nombre del archivo que quieres renombrar y luego presione ENTER");
+                                String nameFileOriginal = input.next();
+                                System.out.println("Ingresa el nuevo nombre y luego presione ENTER");
+                                String nameFileNew = input.next();
+                                filesystemCreado.ren(nameFileOriginal,nameFileNew);
+                                System.out.println(filesystemCreado);
+                                break;
                             default:
                                 System.out.println(numeroIngreso6 + " is not a valid option! Please select correct option.");
                         }
@@ -239,8 +256,8 @@ public class Main {
     private static void printMenuCase6() {
         System.out.println("----MENU MODIFICAR ARCHIVOS/CARPETAS----\n");
         System.out.print("1. Eliminar un archivo o carpeta del sistema. \n");
-        //System.out.print("2. copy.\n");
-        //System.out.print("3. move.\n");
+        System.out.print("2. Copia un archivo o carpeta del sistema.\n");
+        System.out.print("3. Mueve un archivo o carpeta del sistema.\n");
         //System.out.print("4. ren.\n");
         //System.out.print("5. grep.\n");
         //System.out.print("5. restore.\n");

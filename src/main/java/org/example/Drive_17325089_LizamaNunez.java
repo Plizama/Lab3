@@ -1,12 +1,12 @@
 package org.example;
 
-public class Drive {
+public class Drive_17325089_LizamaNunez {
     private String letter;
     private String nameDrive;
     private int capacity;
 
 
-    public Drive(String letter, String nameDrive, int capacity) {
+    public Drive_17325089_LizamaNunez(String letter, String nameDrive, int capacity) {
         this.letter = letter;
         this.nameDrive = nameDrive;
         this.capacity = capacity;

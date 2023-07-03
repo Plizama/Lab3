@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Date;
 
-public class FileImag extends FileAbs{
+public class FileImag_17325089_LizamaNunez extends FileAbs_17325089_LizamaNunez {
     private String nameFile;
     private String extension;
     private String tipoDeArchivo;
@@ -10,7 +10,7 @@ public class FileImag extends FileAbs{
     private Date fechaCreacion;
     private String ubicacion;
 
-    public FileImag(String nameFile, String extension, String user, Date fechaCreacion, String ubicacion) {
+    public FileImag_17325089_LizamaNunez(String nameFile, String extension, String user, Date fechaCreacion, String ubicacion) {
         this.nameFile = nameFile;
         this.extension = extension;
         this.tipoDeArchivo = obtenerTipodeArchivo();
@@ -43,6 +43,16 @@ public class FileImag extends FileAbs{
     @Override
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    @Override
+    public void setFechaCreacion(Date nuevaFecha) {
+        this.fechaCreacion = nuevaFecha;
+    }
+
+    @Override
+    public void setNameFile(String newNameFile) {
+        this.nameFile = newNameFile;
     }
 
 

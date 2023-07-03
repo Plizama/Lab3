@@ -3,26 +3,26 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Trash  {
-    private List<Drive> drives;
-    private List<Folder> folders;
-    private List<FileAbs> files;
+public class Trash_17325089_LizamaNunez {
+    private List<Drive_17325089_LizamaNunez> drives;
+    private List<Folder_17325089_LizamaNunez> folders;
+    private List<FileAbs_17325089_LizamaNunez> files;
 
-    public Trash() {
+    public Trash_17325089_LizamaNunez() {
         this.drives = new ArrayList<>();
         this.folders = new ArrayList<>();
         this.files = new ArrayList<>();
     }
 
 
-    public void addDrivesTrash(Drive driveDeleted){
+    public void addDrivesTrash(Drive_17325089_LizamaNunez driveDeleted){
         drives.add(driveDeleted);
     }
-    public void addFolderTrash(Folder folderDeleted){
+    public void addFolderTrash(Folder_17325089_LizamaNunez folderDeleted){
         folders.add(folderDeleted);
     }
 
-    public void addFileTrash(FileAbs fileDeleted){
+    public void addFileTrash(FileAbs_17325089_LizamaNunez fileDeleted){
         files.add(fileDeleted);
     }
 

@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Date;
 
-public class FileText extends FileAbs {
+public class FileDoc_17325089_LizamaNunez extends FileAbs_17325089_LizamaNunez {
     private String nameFile;
     private String extension;
     private String tipoDeArchivo;
@@ -10,7 +10,7 @@ public class FileText extends FileAbs {
     private Date fechaCreacion;
     private String ubicacion;
 
-    public FileText(String nameFile, String extension, String user, Date fechaCreacion, String ubicacion) {
+    public FileDoc_17325089_LizamaNunez(String nameFile, String extension, String user, Date fechaCreacion, String ubicacion) {
         this.nameFile = nameFile;
         this.extension = extension;
         this.tipoDeArchivo = obtenerTipodeArchivo();
@@ -22,7 +22,7 @@ public class FileText extends FileAbs {
 
     @Override
     public String obtenerTipodeArchivo() {
-        return "Archivo de texto plano";
+        return "Archivo de documento";
     }
 
     @Override
@@ -37,7 +37,6 @@ public class FileText extends FileAbs {
 
     @Override
     public String getExtension() {
-
         return extension;
     }
 
@@ -46,10 +45,20 @@ public class FileText extends FileAbs {
         this.ubicacion = ubicacion;
     }
 
+    @Override
+    public void setFechaCreacion(Date nuevaFecha) {
+        this.fechaCreacion = nuevaFecha;
+    }
+
+    @Override
+    public void setNameFile(String newNameFile) {
+        this.nameFile = newNameFile;
+    }
+
 
     @Override
     public String toString() {
-        return "FileText{" +
+        return "FileDoc{" +
                 "nameFile='" + nameFile + '\'' +
                 ", extension='" + extension + '\'' +
                 ", tipoDeArchivo='" + tipoDeArchivo + '\'' +

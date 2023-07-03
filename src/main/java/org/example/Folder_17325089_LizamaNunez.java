@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Folder {
+public class Folder_17325089_LizamaNunez {
     private String nameFolder;
     //Revisar
     private String User;
@@ -14,7 +14,7 @@ public class Folder {
     private String rutaActual;
 
 
-    public Folder(String nameFolder, String user, Date fechaCreacion, Date fechamodificacion, String rutaActual) {
+    public Folder_17325089_LizamaNunez(String nameFolder, String user, Date fechaCreacion, Date fechamodificacion, String rutaActual) {
         this.nameFolder = nameFolder;
         User = user;
         this.fechaCreacion = fechaCreacion;
@@ -47,5 +47,14 @@ public class Folder {
 
     public void setRutaActual(String rutaActual) {
         this.rutaActual = rutaActual;
+    }
+
+    public void setFechas(Date fechamodificacion) {
+        this.fechaCreacion = fechamodificacion;
+        this.fechamodificacion = fechamodificacion;
+    }
+
+    public void setNameFolder(String nameFolder) {
+        this.nameFolder = nameFolder;
     }
 }
