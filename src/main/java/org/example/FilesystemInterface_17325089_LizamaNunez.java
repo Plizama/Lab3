@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.List;
+
 public interface FilesystemInterface_17325089_LizamaNunez {
 
     void addDrive (String letter, String nameDrive, int capacity);
@@ -16,5 +18,7 @@ public interface FilesystemInterface_17325089_LizamaNunez {
     void copy(String nameFile, String targetPath);
     void move(String nameFile, String targetPath);
     void ren(String currentName, String newName);
+    void dir(List<String> params);
+    void format(String letter, String newName);
 
 }

@@ -1,6 +1,8 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class FileDoc_17325089_LizamaNunez extends FileAbs_17325089_LizamaNunez {
     private String nameFile;
@@ -9,6 +11,7 @@ public class FileDoc_17325089_LizamaNunez extends FileAbs_17325089_LizamaNunez {
     private String user;
     private Date fechaCreacion;
     private String ubicacion;
+    private List<String> atributos;
 
     public FileDoc_17325089_LizamaNunez(String nameFile, String extension, String user, Date fechaCreacion, String ubicacion) {
         this.nameFile = nameFile;
@@ -17,6 +20,7 @@ public class FileDoc_17325089_LizamaNunez extends FileAbs_17325089_LizamaNunez {
         this.user = user;
         this.fechaCreacion = fechaCreacion;
         this.ubicacion = ubicacion;
+        this.atributos = new ArrayList<>();
     }
 
 
@@ -53,6 +57,11 @@ public class FileDoc_17325089_LizamaNunez extends FileAbs_17325089_LizamaNunez {
     @Override
     public void setNameFile(String newNameFile) {
         this.nameFile = newNameFile;
+    }
+
+    @Override
+    public List<String> getAtributos() {
+        return atributos;
     }
 
 

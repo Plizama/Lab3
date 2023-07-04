@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Date;
+import java.util.List;
 
 public abstract class FileAbs_17325089_LizamaNunez {
     private String nameFile;
@@ -9,6 +10,7 @@ public abstract class FileAbs_17325089_LizamaNunez {
     private String user;
     private Date fechaCreacion;
     private String ubicacion;
+    private List<String> atributos;
 
 
 
@@ -20,6 +22,8 @@ public abstract class FileAbs_17325089_LizamaNunez {
     public abstract void setUbicacion(String ubicacion);
     public abstract void setFechaCreacion(Date nuevaFecha);
     public abstract void setNameFile(String newNameFile);
+
+    public abstract List<String>getAtributos();
 
 }
 

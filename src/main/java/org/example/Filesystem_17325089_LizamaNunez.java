@@ -1,8 +1,7 @@
 package org.example;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Filesystem_17325089_LizamaNunez implements FilesystemInterface_17325089_LizamaNunez {
     private String nombreSystem;
@@ -480,6 +479,140 @@ public class Filesystem_17325089_LizamaNunez implements FilesystemInterface_1732
         }
     }
 
+    @Override
+    public void dir(List<String> params) {
+        List<String> dirActuOculto = new ArrayList<>();
+        dirActuOculto.add("/a");
+
+        List<String> dirActu = new ArrayList<>();
+        dirActu.add("/s");
+
+        List<String> dirActuAlfaAs = new ArrayList<>();
+        dirActuAlfaAs.add("/o N");
+
+        if(params.equals(dirActuOculto)){
+            String rutaActual = getRutaActual();
+            List<FileAbs_17325089_LizamaNunez> filesActuales = getFiles();
+            for(FileAbs_17325089_LizamaNunez fileBuscado : filesActuales){
+                String rutaFileBuscado = fileBuscado.getUbicacion();
+                if (rutaActual.equals(rutaFileBuscado)){
+                    System.out.println(fileBuscado);
+                    System.out.println( "\n");
+                }
+            }
+            List<Folder_17325089_LizamaNunez> foldersActuales = getFolders();
+            for(Folder_17325089_LizamaNunez folderBuscado : foldersActuales){
+                String rutaFolderBuscado = folderBuscado.getRutaActual();
+                if (rutaActual.equals(rutaFolderBuscado)){
+                    System.out.println(folderBuscado);
+                    System.out.println("\n");
+                }
+            }
+        }
+        if (params.equals(dirActu)){
+            String rutaActual = getRutaActual();
+            List<FileAbs_17325089_LizamaNunez> filesActuales = getFiles();
+            for(FileAbs_17325089_LizamaNunez fileBuscado : filesActuales){
+                String rutaFileBuscado = fileBuscado.getUbicacion();
+                if (rutaFileBuscado.contains(rutaActual)){
+                    List<String> listAtributosFileBuscado = fileBuscado.getAtributos();
+                    //r (solo lectura), h (oculto)
+                    if (listAtributosFileBuscado.contains("h")){
+                        //salta
+                    }else {
+                        System.out.println(fileBuscado);
+                        System.out.println( "\n");
+                    }
+                }
+            }
+            List<Folder_17325089_LizamaNunez> foldersActuales = getFolders();
+            for(Folder_17325089_LizamaNunez folderBuscado : foldersActuales){
+                String rutaFolderBuscado = folderBuscado.getRutaActual();
+                if (rutaFolderBuscado.contains(rutaActual)){
+                    System.out.println(folderBuscado);
+                    System.out.println("\n");
+                }
+            }
+        }
+        if (params.equals(dirActuAlfaAs)){
+            String rutaActual = getRutaActual();
+            List<FileAbs_17325089_LizamaNunez> filesActuales = getFiles();
+            List<FileAbs_17325089_LizamaNunez> filesDirActual = new ArrayList<>();
+            for(FileAbs_17325089_LizamaNunez fileBuscado : filesActuales){
+                String rutaFileBuscado = fileBuscado.getUbicacion();
+                if (rutaActual.equals(rutaFileBuscado)){
+                    filesDirActual.add(fileBuscado);
+                    //System.out.println(fileBuscado);
+                    //System.out.println( "\n");
+                }
+            }
+            List<Folder_17325089_LizamaNunez> foldersActuales = getFolders();
+            List<Folder_17325089_LizamaNunez> foldersDirActual = new ArrayList<>();
+            for(Folder_17325089_LizamaNunez folderBuscado : foldersActuales){
+                String rutaFolderBuscado = folderBuscado.getRutaActual();
+                if (rutaActual.equals(rutaFolderBuscado)){
+                    foldersDirActual.add(folderBuscado);
+                    //System.out.println(folderBuscado);
+                    //System.out.println("\n");
+                }
+            }
+            //Collections.sort(filesDirActual, new Comparator<FileAbs_17325089_LizamaNunez>() {
+              //  @Override
+               // public int compare(FileAbs_17325089_LizamaNunez p1, FileAbs_17325089_LizamaNunez p2) {
+               //     return p1.getNameFile().compareTo(p2.getNameFile());
+                //}
+            //});
+            //System.out.println(filesDirActual);
+            System.out.println("Llegue aca");
+
+        }
+        return;
+
+    }
+
+    @Override
+    public void format(String letter, String newName) {
+        List<Drive_17325089_LizamaNunez> listDrivesActuales = getDrives();
+        List<Drive_17325089_LizamaNunez> listNewDrivesActuales = new ArrayList<>();
+        for (Drive_17325089_LizamaNunez driveBuscado: listDrivesActuales){
+            String letterDriveBuscado = driveBuscado.getLetter();
+            int capacityDriveBuscado = driveBuscado.getCapacity();
+            if (letterDriveBuscado.contains(letter)){
+                Drive_17325089_LizamaNunez newDrive = new Drive_17325089_LizamaNunez(letter,newName,capacityDriveBuscado);
+                listNewDrivesActuales.add(newDrive);
+            } else {
+                listNewDrivesActuales.add(driveBuscado);
+            }
+
+
+        }
+        setDrives(listNewDrivesActuales);
+
+        List<FileAbs_17325089_LizamaNunez> listFileActuales = getFiles();
+        List<FileAbs_17325089_LizamaNunez> newListFileActuales = new ArrayList<>();
+        for (FileAbs_17325089_LizamaNunez fileBuscado: listFileActuales){
+            String rutaFileBuscado = fileBuscado.getUbicacion();
+            if (rutaFileBuscado.contains(letter)){
+                //
+            }else {
+                newListFileActuales.add(fileBuscado);
+            }
+        }
+        setFiles(newListFileActuales);
+
+        List<Folder_17325089_LizamaNunez> listFolderActuales = getFolders();
+        List<Folder_17325089_LizamaNunez> newListFolderActuales = new ArrayList<>();
+        for (Folder_17325089_LizamaNunez folderBuscado : listFolderActuales){
+            String rutaFolderBuscado = folderBuscado.getRutaActual();
+            if(rutaFolderBuscado.contains(letter)){
+                //
+            }else{
+                newListFolderActuales.add(folderBuscado);
+            }
+        }
+
+    }
+
 
     public boolean existeLEtter (List<Drive_17325089_LizamaNunez> listaDrives, String LetterPrueba){
         int numeroDrives = listaDrives.size();
@@ -605,6 +738,7 @@ public class Filesystem_17325089_LizamaNunez implements FilesystemInterface_1732
     public void setFolders(List<Folder_17325089_LizamaNunez> folders) {
         this.folders = folders;
     }
+
     public FileAbs_17325089_LizamaNunez fileCreator(String nameFile, String ubicacion, Date newdate) {
         int posicionDot = nameFile.indexOf(".");
         //Probar
@@ -635,5 +769,9 @@ public class Filesystem_17325089_LizamaNunez implements FilesystemInterface_1732
             FileAbs_17325089_LizamaNunez newfile = new FileText_17325089_LizamaNunez(nameFile, extension, userAct, newdate, ubicacion);
             return newfile;
         }
+    }
+
+    public void setDrives(List<Drive_17325089_LizamaNunez> drives) {
+        this.drives = drives;
     }
 }

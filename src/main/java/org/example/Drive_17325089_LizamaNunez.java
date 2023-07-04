@@ -12,7 +12,11 @@ public class Drive_17325089_LizamaNunez {
         this.capacity = capacity;
     }
     public String getLetter() {
+
         return letter;
+    }
+    public int getCapacity() {
+        return capacity;
     }
 
     //Revisar si unidad existe
@@ -25,6 +29,7 @@ public class Drive_17325089_LizamaNunez {
                 ", capacity=" + capacity +
                 '}';
     }
+
 
 
 }

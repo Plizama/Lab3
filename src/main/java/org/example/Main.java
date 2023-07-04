@@ -1,4 +1,5 @@
 package org.example;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -92,7 +93,7 @@ public class Main {
                                 break;
 
                             default:
-                                System.out.println(numeroIngreso2 + " is not a valid option! Please select correct option.");
+                                System.out.println(numeroIngreso2 + " Volviendo a menu anterior.");
                         }
                     } while (numeroIngreso2 != MENU_EXIT_OPTION_CASE_2);
 
@@ -148,7 +149,7 @@ public class Main {
                                 System.out.println(filesystemCreado);
                                 break;
                             default:
-                                System.out.println(numeroIngreso5 + " is not a valid option! Please select correct option.");
+                                System.out.println(" Volviendo a menu anterior.");
                         }
                     } while (numeroIngreso5 != MENU_EXIT_OPTION_CASE_5);
 
@@ -193,14 +194,42 @@ public class Main {
                                 System.out.println(filesystemCreado);
                                 break;
                             default:
-                                System.out.println(numeroIngreso6 + " is not a valid option! Please select correct option.");
+                                System.out.println("Volviendo a menu anterior.");
                         }
                     } while (numeroIngreso6 != MENU_EXIT_OPTION_CASE_6);
 
                     break;
-
                 case 7:
-                    //
+                    //ARREGLAR INGRESO DE PARAMETROS
+                    System.out.println("Para listar contenido ingresa el parametro correspondiente y luego presione ENTER");
+                    System.out.println("En caso de NO conocer el parametro correspondiente ingrese: ");
+                    System.out.println("/?");
+                    String params = input.next();
+                    String transfParam1 = "[]"
+                    List<String> realParams = new ArrayList<>();
+                    if(params.contains(",")){
+                        int largoParams = params.length();
+                        String dosParams = params.substring(1,(largoParams-1));
+                        int ubicacionComa = dosParams.indexOf(",");
+                        int largoDosParams = dosParams.length();
+                        String param1 = dosParams.substring(0,ubicacionComa);
+                        String param2 = dosParams.substring((ubicacionComa+1),largoDosParams);
+                        realParams.add(param1);
+                        realParams.add(param2);
+                    }else {
+                        if(params.contains("/")){
+                            int largoParams = params.length();
+                            String paramToList = params.substring(2,(largoParams-2));
+                            realParams.add(paramToList);
+                        }else{
+                            String actual = "";
+                            realParams.add(actual);
+                        }
+
+                    }
+                    //System.out.println(realParams);
+                    filesystemCreado.dir(realParams);
+
                     break;
                 case 8:
                     //
@@ -226,7 +255,7 @@ public class Main {
         System.out.print("4. Cambiar directorio Actual fijado.\n");
         System.out.print("5. Crear archivos o carpetas en el sistema.\n");
         System.out.print("6. Modificar, mover o eliminar archivos/carpetas.\n");
-        System.out.print("7. . \n");
+        System.out.print("7. Listar contenido. \n");
         System.out.print("8. . \n");
         System.out.print("9. Eliminar un archivo del sistema. \n");
         System.out.print("0. Exit.\n");
@@ -256,9 +285,9 @@ public class Main {
     private static void printMenuCase6() {
         System.out.println("----MENU MODIFICAR ARCHIVOS/CARPETAS----\n");
         System.out.print("1. Eliminar un archivo o carpeta del sistema. \n");
-        System.out.print("2. Copia un archivo o carpeta del sistema.\n");
-        System.out.print("3. Mueve un archivo o carpeta del sistema.\n");
-        //System.out.print("4. ren.\n");
+        System.out.print("2. Copiar un archivo o carpeta del sistema.\n");
+        System.out.print("3. Mover un archivo o carpeta del sistema.\n");
+        System.out.print("4. Renombrar un archivo o carpeta.\n");
         //System.out.print("5. grep.\n");
         //System.out.print("5. restore.\n");
         System.out.print("0. Regresar a menu principal.\n");
