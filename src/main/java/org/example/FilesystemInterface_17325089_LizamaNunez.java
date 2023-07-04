@@ -20,5 +20,12 @@ public interface FilesystemInterface_17325089_LizamaNunez {
     void ren(String currentName, String newName);
     void dir(List<String> params);
     void format(String letter, String newName);
+    void encrypt(String password, String folderName);
+    void decrypt(String password, String folderName);
+    void grep(String pattern, String path);
+    void viewTrash();
+    void restore(String pattern);
+
+
 
 }

@@ -8,6 +8,8 @@ public class FileCod_17325089_LizamaNunez extends FileAbs_17325089_LizamaNunez {
     private String nameFile;
     private String extension;
     private String tipoDeArchivo;
+
+    private String contenido;
     private String user;
     private Date fechaCreacion;
     private String ubicacion;
@@ -17,6 +19,7 @@ public class FileCod_17325089_LizamaNunez extends FileAbs_17325089_LizamaNunez {
         this.nameFile = nameFile;
         this.extension = extension;
         this.tipoDeArchivo = obtenerTipodeArchivo();
+        this.contenido= "";
         this.user = user;
         this.fechaCreacion = fechaCreacion;
         this.ubicacion = ubicacion;
@@ -45,6 +48,11 @@ public class FileCod_17325089_LizamaNunez extends FileAbs_17325089_LizamaNunez {
     }
 
     @Override
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    @Override
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
@@ -64,16 +72,23 @@ public class FileCod_17325089_LizamaNunez extends FileAbs_17325089_LizamaNunez {
         return atributos;
     }
 
+    @Override
+    public String getContenido() {
+        return contenido;
+    }
+
 
     @Override
     public String toString() {
-        return "FileCod{" +
+        return "FileCod_17325089_LizamaNunez{" +
                 "nameFile='" + nameFile + '\'' +
                 ", extension='" + extension + '\'' +
                 ", tipoDeArchivo='" + tipoDeArchivo + '\'' +
+                ", contenido='" + contenido + '\'' +
                 ", user='" + user + '\'' +
                 ", fechaCreacion=" + fechaCreacion +
                 ", ubicacion='" + ubicacion + '\'' +
+                ", atributos=" + atributos +
                 '}';
     }
 }

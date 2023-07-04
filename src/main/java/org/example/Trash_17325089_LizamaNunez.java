@@ -16,14 +16,24 @@ public class Trash_17325089_LizamaNunez {
 
 
     public void addDrivesTrash(Drive_17325089_LizamaNunez driveDeleted){
+
         drives.add(driveDeleted);
     }
     public void addFolderTrash(Folder_17325089_LizamaNunez folderDeleted){
+
         folders.add(folderDeleted);
     }
 
     public void addFileTrash(FileAbs_17325089_LizamaNunez fileDeleted){
+
         files.add(fileDeleted);
+    }
+    public List<Folder_17325089_LizamaNunez> getFolders() {
+        return folders;
+    }
+
+    public List<FileAbs_17325089_LizamaNunez> getFiles() {
+        return files;
     }
 
 
@@ -35,4 +45,6 @@ public class Trash_17325089_LizamaNunez {
                 ", files=" + files +
                 '}';
     }
+
+
 }

@@ -57,4 +57,8 @@ public class Folder_17325089_LizamaNunez {
     public void setNameFolder(String nameFolder) {
         this.nameFolder = nameFolder;
     }
+
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
 }

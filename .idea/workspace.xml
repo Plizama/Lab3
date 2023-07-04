@@ -13,18 +13,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/example/FileAbs_17325089_LizamaNunez.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/example/FileAbs_17325089_LizamaNunez.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/example/FileCod_17325089_LizamaNunez.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/example/FileCod_17325089_LizamaNunez.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/example/FileDoc_17325089_LizamaNunez.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/example/FileDoc_17325089_LizamaNunez.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/example/FileImag_17325089_LizamaNunez.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/example/FileImag_17325089_LizamaNunez.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/example/FileText_17325089_LizamaNunez.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/example/FileText_17325089_LizamaNunez.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/example/Drive_17325089_LizamaNunez.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/example/Drive_17325089_LizamaNunez.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/example/FilesystemInterface_17325089_LizamaNunez.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/example/FilesystemInterface_17325089_LizamaNunez.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/example/Filesystem_17325089_LizamaNunez.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/example/Filesystem_17325089_LizamaNunez.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/example/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Filesystem_17325089_LizamaNunez.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Filesystem_17325089_LizamaNunez.class.uniqueId2" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Filesystem_17325089_LizamaNunez.class.uniqueId2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Main.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Main.class.uniqueId0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Drive_17325089_LizamaNunez.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Drive_17325089_LizamaNunez.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FileAbs_17325089_LizamaNunez.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FileAbs_17325089_LizamaNunez.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FileCod_17325089_LizamaNunez.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FileCod_17325089_LizamaNunez.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FileDoc_17325089_LizamaNunez.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FileDoc_17325089_LizamaNunez.java" afterDir="false" />
@@ -32,7 +27,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FileText_17325089_LizamaNunez.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FileText_17325089_LizamaNunez.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FilesystemInterface_17325089_LizamaNunez.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FilesystemInterface_17325089_LizamaNunez.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Filesystem_17325089_LizamaNunez.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Filesystem_17325089_LizamaNunez.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Folder_17325089_LizamaNunez.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Folder_17325089_LizamaNunez.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Trash_17325089_LizamaNunez.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Trash_17325089_LizamaNunez.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +140,8 @@
       <workItem from="1688344113815" duration="11918000" />
       <workItem from="1688356264148" duration="10670000" />
       <workItem from="1688439446803" duration="902000" />
+      <workItem from="1688442235470" duration="7425000" />
+      <workItem from="1688484196631" duration="20381000" />
     </task>
     <task id="LOCAL-00001" summary="Filesystem">
       <created>1687383999692</created>
