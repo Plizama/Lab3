@@ -68,6 +68,11 @@ public class FileText_17325089_LizamaNunez extends FileAbs_17325089_LizamaNunez 
     }
 
     @Override
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+
+    @Override
     public List<String> getAtributos() {
         return atributos;
     }
@@ -76,6 +81,7 @@ public class FileText_17325089_LizamaNunez extends FileAbs_17325089_LizamaNunez 
     public String getContenido() {
         return contenido;
     }
+
 
 
     @Override

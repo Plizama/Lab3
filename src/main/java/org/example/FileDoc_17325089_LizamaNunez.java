@@ -25,58 +25,98 @@ public class FileDoc_17325089_LizamaNunez extends FileAbs_17325089_LizamaNunez {
         this.atributos = new ArrayList<>();
     }
 
-
+    /**
+     * Metodo indica tipo de archivo a partir de la extension indicada en el nombre.
+     * @return : String tipo de archivo
+     */
     @Override
     public String obtenerTipodeArchivo() {
         return "Archivo de documento";
     }
-
+    /**
+     * Metodo TDA selector nombre archivo.
+     * @return : String nombre Archivo
+     */
     @Override
     public String getNameFile() {
         return nameFile;
     }
-
+    /**
+     * Metodo TDA selector ubicacion archivo.
+     * @return : String ruta ubicacion archivo
+     */
     @Override
     public String getUbicacion() {
         return ubicacion;
     }
-
+    /**
+     * Metodo TDA selector extension archivo.
+     * @return : String extension archivo
+     */
     @Override
     public String getExtension() {
         return extension;
     }
-
+    /**
+     * Metodo TDA selector Fecha creacion archivo.
+     * @return : Date fehca de creacion archivo
+     */
     @Override
     public Date getFechaCreacion() {
         return fechaCreacion;
     }
-
-    @Override
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-
-    @Override
-    public void setFechaCreacion(Date nuevaFecha) {
-        this.fechaCreacion = nuevaFecha;
-    }
-
-    @Override
-    public void setNameFile(String newNameFile) {
-        this.nameFile = newNameFile;
-    }
-
+    /**
+     * Metodo TDA selector atributos archivo.
+     * @return : ArrayList de String con atributos de archivos
+     */
     @Override
     public List<String> getAtributos() {
         return atributos;
     }
-
+    /**
+     * Metodo TDA selector Contenido archivo.
+     * @return : String contenido de archivo
+     */
     @Override
     public String getContenido() {
         return contenido;
     }
-
-
+    /**
+     * Metodo TDA modificador ubicacion archivo.
+     * @param ubicacion : String nueva ruta archivo
+     */
+    @Override
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+    /**
+     * Metodo TDA modificador Fecha creacion archivo.
+     * @param nuevaFecha : Date nueva fecha de creacion archivo
+     */
+    @Override
+    public void setFechaCreacion(Date nuevaFecha) {
+        this.fechaCreacion = nuevaFecha;
+    }
+    /**
+     * Metodo TDA modificador nombre archivo.
+     * @param newNameFile : String nuevo nombre archivo
+     */
+    @Override
+    public void setNameFile(String newNameFile) {
+        this.nameFile = newNameFile;
+    }
+    /**
+     * Metodo TDA modificador contenido archivo.
+     * @param contenido : String contenido archivo
+     */
+    @Override
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+    /**
+     * Metodo imprime datos guardados en formato String.
+     * @return : String datos File
+     */
     @Override
     public String toString() {
         return "FileDoc_17325089_LizamaNunez{" +

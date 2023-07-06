@@ -11,7 +11,7 @@ public class Main {
         int choice;
 
         System.out.println("---------PARA INICIAR CREA UN NUEVO SISTEMA----------");
-        System.out.println("Ingrese el nombre del nuevo sistema y luego presione ENTER:");
+        System.out.println("Ingrese el nombre del nuevo sistema (sin espacios) y luego presione ENTER:");
         String nameSystem = input.next();
         Filesystem_17325089_LizamaNunez filesystemCreado = new Filesystem_17325089_LizamaNunez(nameSystem);
 
@@ -23,7 +23,7 @@ public class Main {
                     System.out.println("---Ingresando una nueva unidad al sistema---");
                     System.out.println("Ingrese la letra de la nueva unidad y luego presione ENTER:");
                     String letterDrive= input.next();
-                    System.out.println("Ingrese el nombre de la nueva unidad y luego presione ENTER:");
+                    System.out.println("Ingrese el nombre de la nueva unidad (sin espacios) y luego presione ENTER:");
                     String nameDrive= input.next();
                     System.out.println("Ingrese la capacidad de la nueva unidad y luego presione ENTER:");
                     var capacityDrive= input.nextInt();
@@ -31,7 +31,7 @@ public class Main {
                     List<Drive_17325089_LizamaNunez> listaDrives = filesystemCreado.getDrives();
                     boolean bandera = filesystemCreado.existeLEtter(listaDrives,letterDrive);
                     if(bandera == true){
-                        System.out.println("La letra de la unidad se encuentra repetida, intenta nuevamente.");
+                        System.out.println("LA UNIDAD YA SE ENCUENTRA INGRESADA, INTENTE CON OTRA UNIDAD.");
                     } else{
                         filesystemCreado.addDrive(letterDrive,nameDrive,capacityDrive);
                         System.out.println(filesystemCreado);
@@ -47,21 +47,22 @@ public class Main {
                         numeroIngreso2 = input.nextInt();
                         switch (numeroIngreso2) {
                             case 1:
-                                System.out.println("Ingrese el nombre del usuario y luego presione ENTER:");
+                                System.out.println("Ingrese el nombre del usuario (sin espacios) y luego presione ENTER:");
                                 String nameUser= input.next();
                                 List<User_17325089_LizamaNunez> listaUsuarios = filesystemCreado.getUsers();
                                 boolean banderaUsers = filesystemCreado.existeUser(listaUsuarios, nameUser);
                                 if(banderaUsers == true){
-                                    System.out.println("El nombre de usuario ya se encuentra registrado, intenta con uno nuevo.");
+                                    System.out.println("EL NOMBRE DE USUARIO YA SE ENCUENTRA REGISTRADO, INTENTA CON UNO NUEVO.");
                                 }else{
                                     filesystemCreado.register(nameUser);
                                     System.out.println(filesystemCreado);
                                 }
                                 break;
                             case 2:
-                                System.out.println("---Logueando un usuario en el sistema---");
-                                System.out.println("Ingrese el nombre del usuario a loguear y luego presione ENTER:");
+                                System.out.println("---Iniciar sesión con un usuario en el sistema---");
+                                System.out.println("Ingrese el nombre del usuario que iniciara sesion y luego presione ENTER:");
                                 String nameUserLog= input.next();
+                                System.out.println("Sesion iniciada.\n");
 
                                 List<User_17325089_LizamaNunez> listaUsuariosIngresados = filesystemCreado.getUsers();
                                 boolean Userbandera = filesystemCreado.existeUser(listaUsuariosIngresados, nameUserLog);
@@ -69,18 +70,19 @@ public class Main {
                                     filesystemCreado.login(nameUserLog);
                                     System.out.println(filesystemCreado);
                                 } else{
-                                    System.out.println("El nombre del usuario no existe, intenta con un usuario existente.");
+                                    System.out.println("EL NOMBRE DE USUARIO NO EXISTE, INTENTA CON UN USUARIO REGISTRADO.");
                                 }
 
                                 break;
                             case 3:
                                 System.out.println("---Cerrando la sesion del usuario actual en el sistema---");
                                 filesystemCreado.logout();
-                                System.out.println("--Sesión cerrada.");
+                                System.out.println("--Sesión cerrada.\n");
+                                System.out.println(filesystemCreado);
                                 break;
 
                             default:
-                                System.out.println(numeroIngreso2 + " Volviendo a menu anterior.");
+                                System.out.println(" VOLVIENDO AL MENU PRINCIPAL....");
                         }
                     } while (numeroIngreso2 != MENU_EXIT_OPTION_CASE_2);
 
@@ -95,18 +97,19 @@ public class Main {
                         numeroIngreso3 = input.nextInt();
                         switch (numeroIngreso3) {
                             case 1:
-                                //switchdrive
                                 System.out.println("Ingrese la direccion y luego presione ENTER:");
                                 String direccionFija= input.next();
-                                System.out.println("---Ingresando a dirección---");
+                                System.out.println("Ingresando a dirección......");
 
                                 if(filesystemCreado.existUserLog()){
                                     filesystemCreado.switchDrive(direccionFija);
+                                    System.out.println("--DIRECCION FIJADA--");
                                 } else {
-                                    System.out.println("No existe usuario logueado.");
+                                    System.out.println("NO EXISTE USUARIO CON SESION INICIADA.");
                                 }
-                                System.out.println("--Dirección fijada--");
+                                System.out.println(filesystemCreado);
                                 break;
+
 
                             case 2:
                                 System.out.println("Ingresa simbolo o nueva ruta y luego presione ENTER");
@@ -116,7 +119,7 @@ public class Main {
                                 break;
 
                             default:
-                                System.out.println(" Volviendo a menu anterior.");
+                                System.out.println("VOLVIENDO AL MENU PRINCIPAL....");
                         }
                     } while (numeroIngreso3 != MENU_EXIT_OPTION_CASE_3);
 
@@ -131,10 +134,9 @@ public class Main {
                         numeroIngreso4 = input.nextInt();
                         switch (numeroIngreso4) {
                             case 1:
-                                //mkdir
-                                System.out.println("Ingrese el nombre de la nueva carpeta, y luego presione ENTER");
+                                System.out.println("Ingrese el nombre de la nueva carpeta (sin espacios), y luego presione ENTER");
                                 String newDirectory= input.next();
-                                System.out.println("---Carpeta creada---");
+                                System.out.println("---Carpeta creada---\n");
                                 String pruebaUser = "NoUser";
                                 String nameUserAc = filesystemCreado.nameUserLog();
                                 if(pruebaUser.equals(nameUserAc)){
@@ -145,13 +147,23 @@ public class Main {
                                 }
                                 break;
                             case 2:
+                                Scanner contenido = new Scanner(System.in);
+                                System.out.println("Para ingresar un archivo recuerda que...");
+                                System.out.println("Existe archivos: ");
+                                System.out.println("Codigo fuente (extension: .java, .py, .rkt )");
+                                System.out.println("Docuementos (extension: .doc, .pdf )");
+                                System.out.println("Imagenes (extension: .jpg, .jpeg, .png )");
+                                System.out.println("Texto plano (extension: .txt, .md )\n");
                                 System.out.println("Ingresa el nombre del nuevo archivo.extension y luego presione ENTER");
                                 String nameFile = input.next();
+                                System.out.println("Ingresa el contenido del archivo y luego presiona ENTER :");
+                                var contenidoFile = contenido.nextLine();
                                 filesystemCreado.addFile(nameFile);
+                                filesystemCreado.agregarContenidoFile(nameFile,contenidoFile);
                                 System.out.println(filesystemCreado);
                                 break;
                             default:
-                                System.out.println(" Volviendo a menu anterior.");
+                                System.out.println(" VOLVIENDO AL MENU PRINCIPAL....");
                         }
                     } while (numeroIngreso4 != MENU_EXIT_OPTION_CASE_4);
 
@@ -210,7 +222,7 @@ public class Main {
                                 System.out.println(filesystemCreado);
 
                             default:
-                                System.out.println("Volviendo a menu anterior.");
+                                System.out.println("VOLVIENDO AL MENU PRINCIPAL....");
                         }
                     } while (numeroIngreso5 != MENU_EXIT_OPTION_CASE_5);
 
@@ -349,29 +361,31 @@ public class Main {
                                 String passwordDes = input.next();
                                 System.out.println("Ingresa el nombre del archivo/carpeta a desencriptar y luego presione ENTER");
                                 String originalFolderName = input.next();
-                                boolean banderaPassword = filesystemCreado.existePassword(passwordDes,originalFolderName);
-                                if (banderaPassword == true){
+                                boolean boolFile = filesystemCreado.existePasswordFile(passwordDes,originalFolderName);
+                                boolean boolFolder = filesystemCreado.existePasswordFolder(passwordDes,originalFolderName);
+                                if (boolFile == true || boolFolder ==true){
                                     System.out.println(filesystemCreado);
                                     filesystemCreado.decrypt(passwordDes,originalFolderName);
+                                    System.out.println("---ARCHIVO DESENCRIPTADO--");
                                     System.out.println(filesystemCreado);
                                 }
-                                if (banderaPassword == false){
+                                if (boolFolder == false && boolFolder == false){
                                     System.out.println("CONTRASEÑA INCORRECTA.");
                                 }
 
                                 break;
                             default:
-                                System.out.println(" Volviendo a menu anterior.");
+                                System.out.println(" VOLVIENDO AL MENU PRINCIPAL....");
                         }
                     } while (numeroIngreso9 != MENU_EXIT_OPTION_CASE_9);
 
                     break;
                 case 0:
-                    System.out.println("Bye.. Que la Fuerza te acompañe");
+                    System.out.println("-----SALIENDO DEL PROGRAMA------");
                     System.exit(0);
                     break;
                 default:
-                    System.out.println(choice + " is not a valid option! Please select correct option.");
+                    System.out.println(choice + " NO ES UNA OPCION VALIDA, POR FAVOR INTENTA DE NUEVO.");
 
             }
         } while (choice != MENU_EXIT_OPTION);
@@ -420,7 +434,7 @@ public class Main {
         System.out.print("3. Mover un archivo o carpeta del sistema.\n");
         System.out.print("4. Renombrar un archivo o carpeta.\n");
         System.out.print("5. Buscar una palabra dentro del contenido de un archivo.\n");
-        System.out.print("5. Restaurar archivos de la papelera.\n");
+        System.out.print("6. Restaurar archivos de la papelera.\n");
         System.out.print("0. Regresar a menu principal.\n");
         System.out.print("\nIngresa tu opcion : ");
     }
